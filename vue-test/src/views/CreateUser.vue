@@ -1,24 +1,39 @@
 <template>
-  <form class="card auth-card card__center">
+  <form class="card auth-card card__center" @submit.prevent="submitHandler">
     <div class="card-content">
-      <span class="card-title">Добавления пользователя</span>
+      <span class="card-title">Добавление пользователя</span>
       <div class="input-field">
         <input
             id="name"
             type="text"
-            class="validate"
+            v-model="name"
+            :class="{invalid: ($v.number.$dirty && !$v.number.required)}"
         >
         <label for="name">Имя</label>
-        <small class="helper-text invalid">Имя</small>
+        <small 
+          class="helper-text invalid"
+          v-if="$v.number.$dirty && !$v.number.required"
+          >Поле имя не должно быть пустым</small>
       </div>
+
       <div class="input-field">
         <input
-            id="telephone"
+            id="number"
             type="number"
+            v-model.trim="number"
+            :class="{invalid: ($v.number.$dirty && !$v.number.required) || ($v.number.$dirty && !$v.number.minLength)}"
         >
-        <label for="email">Телефон</label>
-        <small class="helper-text invalid">Телефон</small>
+        <label for="telephone">Телефон</label>
+        <small 
+          class="helper-text invalid"
+          v-if="$v.number.$dirty && !$v.number.required"
+          >Поле телефон не должно быть пустым</small>
+        <small 
+          class="helper-text invalid"
+          v-else-if="$v.number.$dirty && !$v.number.minLength"
+          >В поле телефон должно быть не менее 11 символов</small>
       </div>
+
       <div class="input-field">
         <input
             id="password"
@@ -42,3 +57,35 @@
     </div>
   </form>
 </template>
+
+<script>
+import {required, minLength, numeric} from 'vuelidate/lib/validators'
+
+export default {
+  name: 'create',
+  data: () => ({
+    name: '',
+    number: '',
+    parent: ''
+  }),
+  validations: {
+    name: {required},
+    number: {required, numeric, minLength: minLength(11)}
+  },
+  methods: {
+    submitHandler() {
+      if (this.$v.$invalid) {
+        this.$v.$touch()
+        return
+      }
+      const formData = {
+        name: this.name,
+        number: this.number,
+        parent: this.parent
+      }
+      console.log(formData)
+      this.$router.push('/')
+    }
+  }
+}
+</script>
