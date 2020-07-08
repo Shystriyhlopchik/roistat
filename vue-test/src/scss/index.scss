@@ -1,0 +1,24 @@
+.directory {
+  display:-webkit-flex;
+  display:-ms-flexbox;
+  display:flex;
+  -webkit-flex-direction:column;
+  -ms-flex-direction:column;
+  flex-direction:column;
+  padding-top:5rem;
+  height:100vh;
+}
+
+.directory__table {
+  width: 100%;
+}
+
+.directory__table_center {
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+.card__center {
+  margin: 0 auto;
+  max-width: 400px;
+}
