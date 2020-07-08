@@ -60,6 +60,7 @@
 
 <script>
 import {required, minLength, numeric} from 'vuelidate/lib/validators'
+import messages from '@/utils/messages'
 
 export default {
   name: 'create',
@@ -71,6 +72,11 @@ export default {
   validations: {
     name: {required},
     number: {required, numeric, minLength: minLength(11)}
+  },
+  mounted() {
+    if (messages[this.$router.query.message]){
+      this.$messages(messages[this.$router.query.message])
+    }
   },
   methods: {
     submitHandler() {
