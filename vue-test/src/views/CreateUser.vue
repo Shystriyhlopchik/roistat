@@ -34,15 +34,11 @@
           >В поле телефон должно быть не менее 11 символов</small>
       </div>
 
-      <div class="input-field">
-        <input
-            id="password"
-            type="password"
-            class="validate"
-        >
-        <label for="password">Начальник</label>
-        <small class="helper-text invalid">Начальник</small>
-      </div>
+      <!-- место для элемента -->
+      <Select 
+        :parents = "parents"
+      />
+
     </div>
     <div class="card-action">
       <div>
@@ -61,22 +57,28 @@
 <script>
 import {required, minLength, numeric} from 'vuelidate/lib/validators'
 import messages from '@/utils/messages'
+import Select from '@/components/select'
 
 export default {
   name: 'create',
+  components: {
+    Select
+  },
   data: () => ({
     name: '',
     number: '',
-    parent: null
+    parent: null,
+    parents: []
   }),
   validations: {
     name: {required},
     number: {required, numeric, minLength: minLength(11)}
   },
-  mounted() {
+  async mounted() {
     // if (messages[this.$router.query.message]){
     //   this.$messages(messages[this.$router.query.message])
     // }
+    this.parents = await this.$store.dispatch('fetchParents')
   },
   methods: {
     async submitHandler() {
@@ -89,9 +91,12 @@ export default {
         number: this.number,
         parent: this.parent
       }
+      try {
+        await this.$store.dispatch('createUser', formData)
+        this.$router.push('/')
+      } catch(e) {
 
-      await this.$store.dispatch('createUser', formData)
-      this.$router.push('/')
+      }
     }
   }
 }
