@@ -67,19 +67,19 @@ export default {
   data: () => ({
     name: '',
     number: '',
-    parent: ''
+    parent: null
   }),
   validations: {
     name: {required},
     number: {required, numeric, minLength: minLength(11)}
   },
   mounted() {
-    if (messages[this.$router.query.message]){
-      this.$messages(messages[this.$router.query.message])
-    }
+    // if (messages[this.$router.query.message]){
+    //   this.$messages(messages[this.$router.query.message])
+    // }
   },
   methods: {
-    submitHandler() {
+    async submitHandler() {
       if (this.$v.$invalid) {
         this.$v.$touch()
         return
@@ -89,7 +89,8 @@ export default {
         number: this.number,
         parent: this.parent
       }
-      console.log(formData)
+
+      await this.$store.dispatch('createUser', formData)
       this.$router.push('/')
     }
   }
