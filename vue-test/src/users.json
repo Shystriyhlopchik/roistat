@@ -1,0 +1,28 @@
+{
+  "users":[
+    {
+      "number": 89258633923,
+      "name": "Dima",
+      "subordinate": [{
+        "number": 89258583232,
+        "name": "Kolya",
+        "subordinate": []
+      }]
+    },
+    {
+      "number": 89992223322,
+      "name": "Valya",
+      "subordinate": []
+    },
+    {
+      "number": 89996662233,
+      "name": "Olya",
+      "subordinate": []
+    },
+    {
+      "number": 89997778833,
+      "name": "Vanya",
+      "subordinate": []
+    }
+  ]
+}

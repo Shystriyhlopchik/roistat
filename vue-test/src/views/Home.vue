@@ -1,41 +1,50 @@
 <template>
   <div>
     <table class="striped directory__table">
-    <thead>
-      <tr>
-        <th>Имя</th>
-        <th>Телефон</th>
-      </tr>
-    </thead>
+      <thead>
+        <div>
+          <tr>
+            <th>Имя</th>
+            <th>Телефон</th>
+          </tr>
+        </div>
+      </thead>
 
-    <tbody>
-      <tr>
-        <td>Дима</td>
-        <td>89258583232</td>
-      </tr>
-      <tr>
-        <td>Коля</td>
-        <td>89258583232</td>
-      </tr>
-      <tr>
-        <td>Оля</td>
-        <td>89258583232</td>
-      </tr>
-    </tbody>
+      <tbody>
+        <LineTable v-for="user in users" :key="user.number" :user="user" />
+      </tbody>
   </table>
-  <button
-        class="btn waves-effect waves-light auth-submit"
-        type="submit"
-    >
-      Добавить
-      <i class="material-icons right">send</i>
-    </button>
+  <div>
+    <div></div>
+  </div>
+  <router-link tag="button" class="btn waves-effect waves-light auth-submit" 
+    :to="{name: 'Create'}">
+    {{buttonname}}
+  </router-link>
   </div>
 </template>
 
 <script>
-
+import LineTable from '@/components/LineTable'
 export default {
-  name: 'Home'
+  name: 'line-table',
+  data() {
+    return {
+      buttonname: "Добавить",
+      users: {}
+    }
+  },
+  computed: {
+
+  },
+  created: function() { // получаем всех зарегестрированных абонентов
+    axios.get('/static/users.json')
+    .then((response) => {
+      this.users = response.data.users;
+    });
+  },
+  components: {
+    LineTable
+  }
 }
 </script>

@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Home from '@/views/Home'
+import CreateUser from '@/views/CreateUser'
 
 Vue.use(VueRouter)
   const routes = [
@@ -11,9 +12,12 @@ Vue.use(VueRouter)
   },
   {
     path: '/create-user',
-    name: 'create',
-    meta: {layout: 'empty'},
-    component: () => import('../views/CreateUser.vue')
+    name: 'Create',
+    component: CreateUser
+  },
+  {
+    path: '*',
+    redirect: '/'
   }
 ]
 
