@@ -66,8 +66,8 @@ export default {
   },
   data: () => ({
     name: '',
-    number: '',
-    parent: null,
+    number: null,
+    subordinate: [],
     parents: []
   }),
   validations: {
@@ -75,9 +75,6 @@ export default {
     number: {required, numeric, minLength: minLength(11)}
   },
   async mounted() {
-    // if (messages[this.$router.query.message]){
-    //   this.$messages(messages[this.$router.query.message])
-    // }
     this.parents = await this.$store.dispatch('fetchParents')
   },
   methods: {
@@ -89,13 +86,13 @@ export default {
       const formData = {
         name: this.name,
         number: this.number,
-        parent: this.subordinate
+        subordinate: this.subordinate
       }
       try {
         await this.$store.dispatch('createUser', formData)
         this.$router.push('/')
       } catch(e) {
-
+        console.log('error')
       }
     }
   }
