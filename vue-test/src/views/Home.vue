@@ -25,7 +25,9 @@
 </template>
 
 <script>
-import LineTable from '@/components/LineTable'
+import LineTable from '@/components/LineTable';
+import {mapGetters} from 'vuex';
+
 export default {
   name: 'line-table',
   data() {
@@ -34,9 +36,9 @@ export default {
     }
   },
   computed: {
-    users() {
-      return this.$store.getters.users;
-    }
+    ...mapGetters([
+      'users'
+    ])
   },
   created: function() { // получаем всех зарегестрированных абонентов
     this.$store.dispatch('initStore')
