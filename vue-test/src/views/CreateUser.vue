@@ -89,7 +89,7 @@ export default {
       const formData = {
         name: this.name,
         number: this.number,
-        parent: this.parent
+        parent: this.subordinate
       }
       try {
         await this.$store.dispatch('createUser', formData)

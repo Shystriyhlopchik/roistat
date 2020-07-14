@@ -31,17 +31,15 @@ export default {
   data() {
     return {
       buttonname: "Добавить",
-      users: {}
     }
   },
   computed: {
-
+    users() {
+      return this.$store.getters.users;
+    }
   },
   created: function() { // получаем всех зарегестрированных абонентов
-    axios.get('/static/users.json')
-    .then((response) => {
-      this.users = response.data.users;
-    });
+    this.$store.dispatch('initStore')
   },
   components: {
     LineTable

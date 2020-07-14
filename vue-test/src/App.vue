@@ -8,11 +8,6 @@
 
 <script>
 export default {
-  computed: {
-  },
-  components: {
-   
-  }
 }
 </script>
 
