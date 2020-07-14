@@ -1,12 +1,12 @@
 <template>
   <div class="input-field">
     <select ref="select">
+      <option disabled value="">Нет данных</option>
       <option
-        v-for="p of parents"
-        :key="p.number"
-        :value="p.number"
-      >
-        {{p.name}}
+        v-for="parent of parents"
+        :key="parent.id"
+        :value="parent">
+        {{parent.name}}
       </option>
     </select>
     <label>Выберите начальника</label>

@@ -68,6 +68,7 @@ export default {
     name: '',
     number: null,
     subordinate: [],
+    select: null,
     parents: []
   }),
   validations: {

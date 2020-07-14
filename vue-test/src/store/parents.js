@@ -14,9 +14,10 @@ export default {
           arrayParents.push({
             name: user.name,
             parent: user.parent,
-            number: key
+            id: key
           })
         }
+        
         return arrayParents
       } catch(e) {
         console.log('error')
