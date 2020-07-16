@@ -1,0 +1,11 @@
+@import url('./__img/header__img.css');
+@import url('./__body/header__body.css');
+@import url('./__title/header__title.css');
+
+.header {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  background-color: #003a61;
+}

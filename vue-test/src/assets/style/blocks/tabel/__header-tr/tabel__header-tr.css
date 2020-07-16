@@ -1,0 +1,5 @@
+.tabel__header-tr {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 1px;
+}

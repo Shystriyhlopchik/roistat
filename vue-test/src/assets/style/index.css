@@ -1,0 +1,23 @@
+@import url('./blocks/page/page.css');
+@import url('./blocks/header/header.css');
+@import url('./blocks/tabel/tabel.css');
+
+
+.app__block {
+  margin: 0 auto;
+}
+
+.grey {
+  width: 100vw;
+  height: 100vh;
+  background-color: darkgrey;
+}
+
+.card__center {
+  max-width: 400px;
+  position: absolute;
+  top: calc(50% - 181px);
+  left: calc(50% - 162px);
+}
+
+

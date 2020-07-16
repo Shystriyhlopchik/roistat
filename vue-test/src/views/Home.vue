@@ -35,6 +35,9 @@ export default {
       buttonname: "Добавить",
     }
   },
+  components: {
+    LineTable
+  },
   computed: {
     ...mapGetters([
       'users'
@@ -42,9 +45,6 @@ export default {
   },
   created: function() { // получаем всех зарегестрированных абонентов
     this.$store.dispatch('initStore')
-  },
-  components: {
-    LineTable
   }
 }
 </script>

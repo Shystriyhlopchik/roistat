@@ -1,0 +1,21 @@
+@import url('./__but/tabel__but.css');
+@import url('./__header-tr/tabel__header-tr.css');
+@import url('./__td/tabel__td.css');
+@import url('./__th/tabel__th.css');
+@import url('./__tr/tabel__tr.css');
+
+.table {
+  font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+  text-align: left;
+  border-collapse: separate;
+  border-spacing: 5px;
+  background: #ECE9E0;
+  color: #656665;
+  border: 16px solid #ECE9E0;
+  border-radius: 20px;
+
+  margin: 0px auto;
+  display: flex;
+  flex-direction: column;
+  max-width: 350px;
+}

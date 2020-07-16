@@ -1,0 +1,6 @@
+@import url('./_padding-left/tabel__tr_padding-left.css');
+
+.tabel__tr {
+  display: flex;
+  margin: 0 auto 1px;
+}

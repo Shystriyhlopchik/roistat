@@ -1,17 +1,26 @@
 <template>
   <div id="app">
-    <div class="directory directory__table_center">
+    <component :is="layout">
       <router-view />
-    </div>
+    </component>
   </div>
 </template>
 
 <script>
+import EmptyLayout from '@/layouts/EmptyLayout'
 export default {
+  computed: {
+    layout() {
+      return 'empty-layout'
+    }
+  },
+  components: {
+    EmptyLayout
+  }
 }
 </script>
 
-<style lang="scss">
+<style lang="css">
 @import '~materialize-css/dist/css/materialize.css';
-@import './css/index.css';
+@import './assets/style/index.css';
 </style>

@@ -35,7 +35,7 @@
       </div>
 
       <!-- место для элемента -->
-      <Select 
+      <SelectLine 
         :parents = "parents"
       />
 
@@ -57,18 +57,17 @@
 <script>
 import {required, minLength, numeric} from 'vuelidate/lib/validators'
 import messages from '@/utils/messages'
-import Select from '@/components/select'
+import SelectLine from '@/components/SelectLine'
 
 export default {
-  name: 'create',
+  name: 'createUser',
   components: {
-    Select
+    SelectLine
   },
   data: () => ({
     name: '',
     number: null,
     subordinate: [],
-    select: null,
     parents: []
   }),
   validations: {
