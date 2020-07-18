@@ -21,7 +21,6 @@ const actions = {
 
 const mutations = {
   'SET_STORE' (state, users) {
-    console.log(users)
     state.users = users;
   }
 }

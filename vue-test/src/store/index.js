@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import users from './modules/users'
+import users from './modules/users' // временное решение
+import record from './modules/record'
 import create from './create'
 import parents from './parents'
 
@@ -20,6 +21,6 @@ export default new Vuex.Store({
     
   },
   modules: {
-    users, create, parents
+    record, users, create, parents
   }
 })

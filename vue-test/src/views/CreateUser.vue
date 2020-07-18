@@ -76,6 +76,7 @@ export default {
   },
   async mounted() {
     this.parents = await this.$store.dispatch('fetchParents')
+    console.log(this.parents)
   },
   methods: {
     async submitHandler() {
@@ -86,10 +87,11 @@ export default {
       const formData = {
         name: this.name,
         number: this.number,
-        subordinate: this.subordinate
+        subordinate: ['88888888888', '11111111111']
       }
       try {
         await this.$store.dispatch('createUser', formData)
+        localStorage.removeItem(99999999999)
         this.$router.push('/')
       } catch(e) {
         console.log('error')
