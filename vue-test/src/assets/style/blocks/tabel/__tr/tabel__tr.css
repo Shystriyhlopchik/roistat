@@ -1,4 +1,5 @@
 @import url('./_padding-left/tabel__tr_padding-left.css');
+@import url('./_display/tabel__tr_display.css');
 
 .tabel__tr {
   display: flex;

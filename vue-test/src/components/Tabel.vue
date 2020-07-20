@@ -6,17 +6,14 @@
         <li class="tabel__th">Телефон</li>
       </ul>
       <div class="tabel__row-main">
-        <!-- место куда вставляются строка -->
-        <div class="" v-for="record in records" :key="record.id">
-          <div class="tabel__row">
-            <div class="tabel__td">{{record.name}}</div>
-            <div class="tabel__td">{{record.id}}</div>
-          </div>
-          <substring 
-            v-for="subordinate in record.subordinate"
-            :key="subordinate" 
-            :subordinate="subordinate"/>
-        </div>
+        <p class="center" v-if="!records.length">Записей пока нет</p>
+        <!-- место куда вставляются строки -->
+        <tabel-row v-else
+          v-for="record in records"
+          :key="record.id"
+          :record="record"
+        />
+
       </div>
       <router-link tag="button" class="tabel__but" :to="{name: 'Create'}">Добавить</router-link>
     </div>
@@ -25,17 +22,21 @@
 </template>
 
 <script>
-import Substring from './Substring'
+import TabelRow from './TabelRow'
+import Loader from '@/components/Loader'
 export default {
   name: 'tabel',
-  props: {
-    records: {
-      type: Array,
-      required: true
-    }
+  data: () => ({
+    records: [],
+    loading: false
+  }),
+  async mounted() {
+    this.records = await this.$store.dispatch('fetchRecords')
+    console.log(this.records)
+    this.loading = false
   },
   components: {
-    Substring
+    TabelRow, Loader
   }
 }
 </script>
