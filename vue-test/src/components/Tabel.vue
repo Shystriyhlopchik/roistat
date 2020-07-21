@@ -32,7 +32,6 @@ export default {
   }),
   async mounted() {
     this.records = await this.$store.dispatch('fetchRecords')
-    console.log(this.records)
     this.loading = false
   },
   components: {

@@ -1,11 +1,11 @@
 <template>
   <div class="input-field">
-    <select ref="select" v-model="order.parent">
+    <select ref="select" v-model="order.parent" :class="updateValue">
       <option disabled value="">Нет данных</option>
-      <option
-        v-for="parent in parents"
+      <option 
+        v-for="parent of parents"
         :key="parent.id"
-        :value="parent.name">
+        :value="parent.id">
         {{parent.name}}
       </option>
     </select>
@@ -18,20 +18,19 @@ export default {
   props: {
     parents: {
       type: Array,
-      required: false
+      required: true
     }
   },
   data: () => ({
     select: null,
-
     order:{
       parent: ''
     }
   }),
-  async mounted() {
-    // this.parents = await this.$store.dispatch('fetchParents')
-    this.select = await M.FormSelect.init(this.$refs.select)
-    console.log(this.parents)
+  mounted() {
+    setTimeout(()=>{
+      this.select = M.FormSelect.init(this.$refs.select)
+    }, 50)
   },
   destroyed() {
     if (this.select && this.select.destroy) {

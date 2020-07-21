@@ -7,7 +7,7 @@
             id="name"
             type="text"
             v-model="name"
-            :class="{invalid: ($v.number.$dirty && !$v.number.required)}"
+            :class="{invalid: ($v.name.$dirty && !$v.name.required)}"
         >
         <label for="name">Имя</label>
         <small 
@@ -35,9 +35,18 @@
       </div>
 
       <!-- место для элемента -->
-      <SelectLine 
-        :parents = "parents"
-      />
+      <div class="input-field">
+        <select ref="select" v-model="current">
+          <option disabled value="null">Нет данных</option>
+          <option 
+            v-for="parent of parents"
+            :key="parent.id"
+            :value="parent.id">
+            {{parent.name}}
+          </option>
+        </select>
+        <label>Выберите начальника</label>
+      </div>
 
     </div>
     <div class="card-action">
@@ -58,25 +67,32 @@
 import {required, minLength, numeric} from 'vuelidate/lib/validators'
 import messages from '@/utils/messages'
 import SelectLine from '@/components/SelectLine'
-
 export default {
   name: 'createUser',
   components: {
     SelectLine
   },
   data: () => ({
+    parents: [],
+    current: null,
     name: '',
     number: null,
-    subordinate: [],
-    parents: []
+    parent: null
   }),
   validations: {
     name: {required},
     number: {required, numeric, minLength: minLength(11)}
   },
+  watch: {
+    current(parentId) {
+      this.parent = parentId
+    }
+  },
   async mounted() {
-    this.parents = await this.$store.dispatch('fetchParents')
-    console.log(this.parents)
+    this.parents = await this.$store.dispatch('fetchRecords')
+    setTimeout(()=>{
+      this.select = M.FormSelect.init(this.$refs.select)
+    }, 50)
   },
   methods: {
     async submitHandler() {
@@ -84,18 +100,24 @@ export default {
         this.$v.$touch()
         return
       }
+      
       const formData = {
         name: this.name,
         number: this.number,
-        subordinate: ['88888888888', '11111111111']
+        parent: this.parent
       }
+
       try {
-        await this.$store.dispatch('createUser', formData)
-        localStorage.removeItem(99999999999)
+        await this.$store.dispatch('createRecord', formData)
         this.$router.push('/')
       } catch(e) {
         console.log('error')
       }
+    }
+  },
+  destroyed() {
+    if (this.select && this.select.destroy) {
+      this.select.destroy()
     }
   }
 }
