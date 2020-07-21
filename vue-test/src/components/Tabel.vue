@@ -1,9 +1,9 @@
 <template>
   <main class="header__body">
     <div class="table">
-      <ul class="tabel__header-tr">
-        <li class="tabel__th">Имя</li>
-        <li class="tabel__th">Телефон</li>
+      <ul class="tabel__header-tr" >
+        <li class="tabel__th" v-on:click="sortName">Имя</li>
+        <li class="tabel__th" v-on:click="sortNumber">Телефон</li>
       </ul>
       <div class="tabel__row-main">
         <p class="center" v-if="!records.length">Записей пока нет</p>
@@ -33,6 +33,28 @@ export default {
   async mounted() {
     this.records = await this.$store.dispatch('fetchRecords')
     this.loading = false
+  },
+  methods: {
+    sortName() {
+      let tempRecords = this.records
+      function compare(a, b){
+        if (a.name > b.name) return 1;
+        if (a.name == b.name) return 0;
+        if (a.name < b.name) return -1;
+      }
+      
+      tempRecords.sort(compare)
+    },
+    sortNumber() {
+      let tempRecords = this.records
+      function compare(a, b){
+        if (a.id > b.id) return 1;
+        if (a.id == b.id) return 0;
+        if (a.id < b.id) return -1;
+      }
+      
+      tempRecords.sort(compare)
+    }
   },
   components: {
     TabelRow, Loader

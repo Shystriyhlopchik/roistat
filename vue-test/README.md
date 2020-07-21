@@ -45,6 +45,7 @@ key: "{"name":"Jon","number":"89998887766","subordinate":[" 89996667788 "]}"
 + CSS
 + Materialize
 + Vuelidate 0.75
++ vuex
 
 
 [To top/Наверх](#Roistat)
