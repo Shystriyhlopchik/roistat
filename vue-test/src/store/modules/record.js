@@ -3,6 +3,7 @@ export default {
     // Функция для получения записей из localeStorage
     fetchRecords() {
       try {
+        console.log(localStorage)
         const arrayRecords = []
         for(let key in localStorage) {
           // Избавляемся от записи "loglevel:webpack-dev-server" в localStorage 

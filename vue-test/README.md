@@ -30,7 +30,7 @@ $> npm run serve
 ### Используемые поля и данные 
 
 #### Формат данных в LocalStorage
-key:{name}
+key: "{"name":"Jon","number":"89998887766","subordinate":[" 89996667788 "]}"
 
 #### Поля LocalStorage
 | Параметры | Описание | Тип | Условия |
