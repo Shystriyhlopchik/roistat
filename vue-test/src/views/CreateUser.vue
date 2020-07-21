@@ -66,12 +66,8 @@
 <script>
 import {required, minLength, numeric} from 'vuelidate/lib/validators'
 import messages from '@/utils/messages'
-import SelectLine from '@/components/SelectLine'
 export default {
   name: 'createUser',
-  components: {
-    SelectLine
-  },
   data: () => ({
     parents: [],
     current: null,
