@@ -1,0 +1,4 @@
+.tabel__row-main {
+  display: flex;
+  flex-direction: column;
+}

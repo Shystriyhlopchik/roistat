@@ -6,16 +6,13 @@
       </div>
     </header>
 
-    <tabel />
+    <router-view />
+    
   </div>  
 </template>
 
 <script>
-import Tabel from '@/components/Tabel'
 export default {
-  name: 'main-layout',
-  components: {
-    Tabel
-  }
+  name: 'main-layout'
 }
 </script>

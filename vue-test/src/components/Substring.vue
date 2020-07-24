@@ -1,7 +1,7 @@
 <template>
-  <div class="tabel__row tabel__tr_padding-left"> 
-    <div class="tabel__td">{{name}}</div>
-    <div class="tabel__td">{{subordinate}}</div>
+  <div class="tabel__substring"> 
+    <div class="tabel__td tabel__td_lightgoldenrodyellow tabel__td_width_40">{{name}}</div>
+    <div class="tabel__td tabel__td_lightgoldenrodyellow tabel__td_width_60">{{subordinate}}</div>
   </div>
 </template>
 

@@ -1,8 +1,12 @@
 @import url('./__but/tabel__but.css');
-@import url('./__header-tr/tabel__header-tr.css');
+@import url('./__header-ul/tabel__header-ul.css');
 @import url('./__td/tabel__td.css');
-@import url('./__th/tabel__th.css');
 @import url('./__tr/tabel__tr.css');
+@import url('./__row/tabel__row.css');
+@import url('./__row-main/tabel__row-main.css');
+@import url('./__substring/tabel__substring.css');
+@import url('./__block/tabel__block.css');
+
 
 .table {
   font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
@@ -12,20 +16,9 @@
   background: #ECE9E0;
   color: #656665;
   border: 16px solid #ECE9E0;
-  border-radius: 20px;
 
   margin: 0px auto;
   display: flex;
   flex-direction: column;
   max-width: 350px;
-}
-
-.tabel__row-main {
-  display: flex;
-  flex-direction: column;
-}
-
-.tabel__row {
-  display: flex;
-  margin: 1px;
 }

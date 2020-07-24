@@ -1,12 +1,14 @@
 <template>
-  <div class="" 
-    v-on:click="isOpen = !isOpen"
-  >
+  <div class="tabel__block" v-on:click="isOpen = !isOpen">
     <div class="tabel__row">
-      <div class="tabel__td tabel__td_cursor-pointer" @click="$emit('click')">
-        <img src="../../public/img/icons/download.svg" width="10px" height="10px" alt="" v-if="record.subordinate != 0">
-        {{record.name}}</div>
-      <div class="tabel__td">{{record.id}}</div>
+      <div class="tabel__td tabel__td_cursor-pointer tabel__td_width_40" @click="$emit('click')" v-if="record.subordinate != 0">
+        <img src="../../public/img/icons/download.svg" width="10px" height="10px" alt="">
+        {{record.name}}
+      </div>
+      <div class="tabel__td tabel__td_width_40" @click="$emit('click')" v-else>
+        {{record.name}}
+      </div>
+      <div class="tabel__td tabel__td_width_60">{{record.id}}</div>
     </div>
 
     <substring 
@@ -15,7 +17,6 @@
       :subordinate="subordinate"
       :class="{tabel__tr_display: !isOpen}"
     />
-
   </div>
 </template>
 
