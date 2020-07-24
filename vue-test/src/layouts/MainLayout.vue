@@ -4,9 +4,6 @@
       <div class="header__img">
         <img src="@/assets/images/logo_transparent.png" alt="Roistat">
       </div>
-      <div class="header__title">
-        <h1>Телефонный справочник компании (beta)</h1>
-      </div>
     </header>
 
     <tabel />
