@@ -1,17 +1,15 @@
 @import url('./blocks/page/page.css');
 @import url('./blocks/header/header.css');
 @import url('./blocks/tabel/tabel.css');
+@import url('./blocks/empty-layout/empty-layout.css');
 
-
+body {
+  background-color: darkgrey;
+}
 .app__block {
   margin: 0 auto;
 }
 
-.grey {
-  width: 100vw;
-  height: 100%;
-  background-color: darkgrey;
-}
 
 .card__center {
   max-width: 400px;

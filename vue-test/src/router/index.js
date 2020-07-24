@@ -12,6 +12,7 @@ Vue.use(VueRouter)
   {
     path: '/create-user',
     name: 'Create',
+    meta: {layout: 'empty'},
     component: () => import('@/views/CreateUser')
   },
   {
