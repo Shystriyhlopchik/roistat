@@ -1,0 +1,12 @@
+.tabel__header-ul {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 15px;
+}
+
+.tabel__header-ul li {
+  cursor: pointer;
+  font-family: 'Gilroy-Bold', Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  line-height: 20px;
+}

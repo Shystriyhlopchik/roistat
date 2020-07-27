@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <component :is="layout">
-      <router-view/>
+      <router-view />
     </component>
   </div>
 </template>
@@ -12,7 +12,8 @@ import MainLayout from '@/layouts/MainLayout'
 export default {
   computed: {
     layout() {
-      return (this.$route.meta.layout || 'main') + '-layout'
+      let layout = (this.$route.meta.layout || 'main') + '-layout'
+      return layout
     }
   },
   components: {
@@ -21,7 +22,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="css">
 @import '~materialize-css/dist/css/materialize.css';
-@import './css/index.css';
+@import './assets/style/index.css';
 </style>

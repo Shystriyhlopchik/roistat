@@ -1,0 +1,7 @@
+.tabel__tr_padding-left {
+  padding-left: 30px;
+}
+
+.tabel__tr_padding-left .tabel__td {
+  background: #F5D7BF;
+}

@@ -1,0 +1,14 @@
+@import url('./_cursor-pointer/tabel__td_cursor-pointer.css');
+@import url('./_width_40/tabel__td_width_40.css');
+@import url('./_width_60/tabel__td_width_60.css');
+@import url('./_lightgoldenrodyellow/tabel__td_lightgoldenrodyellow.css');
+
+.tabel__td {
+  background: #FFDAB9;
+  padding: 10px;
+  margin-right: 1px;
+
+  font-family: 'Gilroy-Medium', Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 18px;
+}

@@ -1,19 +1,23 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import MainPage from '@/views/MainPage.vue'
 
 Vue.use(VueRouter)
   const routes = [
   {
     path: '/',
-    name: 'home',
-    component: Home
+    name: 'main-page',
+    component: MainPage
   },
   {
     path: '/create-user',
-    name: 'create',
+    name: 'Create',
     meta: {layout: 'empty'},
-    component: () => import('../views/CreateUser.vue')
+    component: () => import('@/views/CreateUser')
+  },
+  {
+    path: '*',
+    redirect: '/'
   }
 ]
 
